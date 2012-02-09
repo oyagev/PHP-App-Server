@@ -17,7 +17,9 @@ class Entrance{
 		$params = json_encode(array(
 			'post' => $_POST,
 			'get' => $_GET,
-			'server' => $_SERVER
+			'server' => $_SERVER,
+			'cookie' => $_COOKIE,
+			'files' => $_FILES,		
 		));
 		
 		return $result = $this->client->do('serve',$params);

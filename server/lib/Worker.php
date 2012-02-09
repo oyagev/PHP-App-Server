@@ -34,6 +34,8 @@ class Worker{
 		$_POST = (array)$params->post;
 		$_GET = (array)$params->get;
 		$_SERVER = (array)$params->server;
+		$_FILES = (array)$params->files;
+		$_COOKIE = (array)$params->cookie;
 		$_REQUEST = array_merge($_GET,$_POST);
 		
 		

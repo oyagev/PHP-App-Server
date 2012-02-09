@@ -1,11 +1,11 @@
 # PHP App Server (PHAS)
 
 This project emerged from a painful situation...    
-While I love PHP and code it daily, I come to notice that most of my app's realtime processing is spent on loading classes 
+While I love PHP and code it daily, I come to notice that most of my app's realtime processing is spent on loading classes, 
 thus performing the same job over and over again.
 
-PHAS is designed to be lightweight "application server" that seperates user's request from the actual PHP process that process the request and returns the response.
-PHAS is not a server Per se but rather a seperator between the user's entrance (usually the famous index.php that we all have in our app) and the rest of the application.
+PHAS is designed to be lightweight "application server" that seperates user's request from the actual PHP script that process the request and returns the response.
+PHAS is not a server per se. Rather it is a seperator between the user's entrance (usually the famous index.php that we all have in our app) and the rest of the application.
 
 ## How does it work?
 
