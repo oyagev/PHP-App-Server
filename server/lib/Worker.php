@@ -35,7 +35,7 @@ class Worker{
 		$_GET = (array)$params->get;
 		$_SERVER = (array)$params->server;
 		$_REQUEST = array_merge($_GET,$_POST);
-		//$_SERVER['REQUEST_URI'] = '/oht/';
+		
 		
 		$app = $this->config->get('app.script.loop');
 		ob_start();
@@ -43,7 +43,9 @@ class Worker{
 		
 		include $app;
 		
-		return ob_get_clean();
+		$buff = ob_get_clean();
+		
+		return $buff;
 	}
 	
 	
