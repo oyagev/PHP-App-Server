@@ -26,7 +26,7 @@ function autoload($name){
 }
 spl_autoload_register('PHAS\autoload');
 
-require_once(PHAS_CONFIG_PATH.'server.php');
+require_once(PHAS_CONFIG_PATH.'server.config.php');
 $config = new ServerConfig($serverConfig);
 
 
