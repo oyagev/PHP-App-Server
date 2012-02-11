@@ -14,7 +14,8 @@ class Entrance{
 	}
 	
 	function go(){
-		$params = json_encode(array(
+		
+		$request = new Request(array(
 			'post' => $_POST,
 			'get' => $_GET,
 			'server' => $_SERVER,
@@ -22,7 +23,14 @@ class Entrance{
 			'files' => $_FILES,		
 		));
 		
-		return $result = $this->client->do('serve',$params);
+		
+		$result = $this->client->do('serve',$request->toJSON());
+		$response = Response::fromJSON($result);
+		$headers = $response->getHeaders();
+		foreach($headers as $header){
+			header($header);
+		}
+		return $response->getBody();
 		
 	}
 	
