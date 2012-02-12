@@ -41,6 +41,7 @@ PHAS requires the following:
 ## Known Issues 
 
 Use of some native PHP functions and features may work as expected. I'm working on the following issues:
+
 1. Using the exit() function may crash the whole process.
 2. header() function may not work as expected -> use \PHAS\Lib\PHAS::header() instead.
 3. Using register_shutdown_function may not work as expected. 
