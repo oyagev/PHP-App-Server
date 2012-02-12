@@ -24,12 +24,9 @@ PHAS requires the following:
 
 1. Gearman
 2. PECL gearman extension >= 0.6.0 (please see note for ubuntu users...)
+3. PHP >=5.3
+4. Any web server that supports PHP.
 
-
-## Limitations 
-
-1. Currently it does not support setting headers on the response. This is top priority for the next few days...
-2. I'm sure there are more limitations :-O
 
 ## Installation
 
@@ -40,10 +37,20 @@ PHAS requires the following:
 		
 		php -f /path/to/server/server-loop.php
 
+
+## Known Issues 
+
+Use of some native PHP functions and features may work as expected. I'm working on the following issues:
+1. Using the exit() function may crash the whole process.
+2. header() function may not work as expected -> use \PHAS\Lib\PHAS::header() instead.
+3. Using register_shutdown_function may not work as expected. 
+4. Uploading files, Cookies and Sessions are currently expected not to work at all. 
+
+
 ## Note for Ubuntu Users:
 I was having trouble installing the PECL library for gearman on Lucid (10.04). Here's how I eventuall did it:
 
-	sudo aptitude install gearman libgearman-dev libgearman2 libevent uuid-dev
+	sudo aptitude install gearman libgearman-dev libgearman2 libevent-dev uuid-dev
 	sudo pecl install channel://pecl.php.net/gearman-0.6.0
 
 At this stage I've been getting an error message like this:
@@ -53,13 +60,12 @@ At this stage I've been getting an error message like this:
 	make: *** [gearman.la] Error 1
 	ERROR: `make' failed
 	
-Thanks to [a post by Max Gribov](http://mgribov.blogspot.com/2010/05/gearman-pecl-package-on-ubuntu-lucid.html) there is a solution:
-
-	Open /usr/lib/libgearman.la as root, and find a line that says:
+Thanks to [a post by Max Gribov](http://mgribov.blogspot.com/2010/05/gearman-pecl-package-on-ubuntu-lucid.html) there is a solution.
+Open /usr/lib/libgearman.la as root, and find a line that says:
 	dependency_libs=' -L/usr/lib /usr/lib/libuuid.la'
 	
-	Replace it with:
-	dependency_libs=' -L/usr/lib -luuid'
+Replace it with:
+	dependency_libs=' -L/usr/lib /usr/lib-luuid'
 
 ## License and Credits
 PHAS is realeased under the [MIT license](http://en.wikipedia.org/wiki/MIT_License).  
