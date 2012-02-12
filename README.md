@@ -61,10 +61,10 @@ At this stage I've been getting an error message like this:
 	ERROR: `make' failed
 	
 Thanks to [a post by Max Gribov](http://mgribov.blogspot.com/2010/05/gearman-pecl-package-on-ubuntu-lucid.html) there is a solution.
-Open /usr/lib/libgearman.la as root, and find a line that says:
+Open /usr/lib/libgearman.la as root, and find a line that says:    
 	dependency_libs=' -L/usr/lib /usr/lib/libuuid.la'
 	
-Replace it with:
+Replace it with:    
 	dependency_libs=' -L/usr/lib /usr/lib-luuid'
 
 ## License and Credits
