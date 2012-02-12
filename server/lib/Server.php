@@ -20,7 +20,7 @@ class Server {
 		if( ! Thread::available() ) {
 		    die( 'Threads not supported' );
 		}
-		$t = new Thread( '\PHAS\Lib\Server\runWorker' );
+		$t = new Thread( 'PHAS\Lib\Server\runWorker' );
 		
 		$this->workers[$this->workersCount] = $t;
 		$this->workersStats[$this->workersCount] = array(
